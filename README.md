@@ -1,6 +1,6 @@
 *This project has been created as part of the 42 curriculum by tzammar.*
 
-# Push_swap
+# Push_swap - Because Swap_push doesn’t feel as natural
 
 ## Description
 
