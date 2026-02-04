@@ -1,1 +1,69 @@
-# 42_push_swap
+*This project has been created as part of the 42 curriculum by tzammar.*
+
+# Push_swap
+
+## Description
+
+**Push_swap** is a highly effective algorithmic project at 42. The goal is to sort data on a stack, with a limited set of instructions, using the lowest possible number of actions.
+
+You start with two empty stacks: **Stack A** and **Stack B**. You are given a random list of integers as arguments which are placed into Stack A. The objective is to sort the numbers in Stack A in ascending order.
+
+This project focuses on **complexity analysis** and choosing the most efficient sorting algorithm to minimize the number of operations (`sa`, `sb`, `pa`, `pb`, `ra`, `rb`, `rra`, `rrb`) depending on the size of the input.
+
+## Instructions
+
+### Requirements
+**External Dependencies:** This project relies on the previously created libraries. The following must be present and included to compile:
+    * `libft`
+    * `ft_printf`
+    * `get_next_line`
+
+### 2. Compilation
+To compile the program, run the following command in the root of the repository:
+
+```bash
+make
+```
+This will link all dependencies and generate the push_swap executable.
+
+### Usage
+Run the program with a list of integers as arguments:
+
+```Bash
+./push_swap 2 1 3 6 5 8
+```
+The program will output a list of instructions (e.g., sa, pb, ra) that effectively sort the integers.
+
+To check the number of operations:
+
+```Bash
+./push_swap 2 1 3 6 5 8 | wc -l
+```
+## The Algorithms
+This project utilizes different strategies based on the input size to ensure efficiency.
+
+**Small Sets (≤ 5 Integers)**
+For inputs of 5 numbers or less, the program uses a manual sorting strategy.
+
+**Large Sets (> 5 Integers): Radix Sort**
+For larger sets of numbers, the program implements Radix Sort.
+
+How it works:
+* **Simplification:** First, the input numbers are "normalized" (replaced by their simplified rank/index from 0 to N-1) to handle negative numbers and large values easily.
+* **Bitwise Processing:** The algorithm treats these ranks as binary numbers. It iterates through the bits of the numbers from the Least Significant Bit (LSB) to the Most Significant Bit (MSB).
+
+### The Loop:
+**For the current bit position i:**
+* If the i-th bit of the top number in Stack A is 0, it is pushed to Stack B (pb).
+* If the i-th bit is 1, it is rotated to the bottom of Stack A (ra).
+
+After checking all numbers, everything in Stack B is pushed back to Stack A (pa).
+
+### Result:
+By the time the algorithm processes the most significant bit, the stack is perfectly sorted.
+
+## Resources
+### References
+* **[GeeksforGeeks - Radix Sort](https://www.geeksforgeeks.org/radix-sort/)** - General explanation of the algorithm.
+* **[Push Swap Visualizer](https://github.com/o-reo/push_swap_visualizer)** - A helpful tool to visualize your sorting algorithm in real-time.
+* **[The fastest sorting algorithm](https://youtu.be/Y95a-8oNqps?si=fnsOG3y9Ui_h0uoj)** - A Great YouTube video to better understand how radix work
